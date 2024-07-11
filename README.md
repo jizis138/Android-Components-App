@@ -14,6 +14,8 @@
 
 Помимо этого используется:
 
+Local Database - SQLite
+
 Navigation - Voyager
 
 DI - Koin
