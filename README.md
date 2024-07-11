@@ -13,6 +13,9 @@
 Приложение имеет два клиента, один из них отправляет события (androidcomponents-writer), другой их обрабатывает (androidcomponents-reader)
 
 Помимо этого используется:
+
 Navigation - Voyager
+
 DI - Koin
+
 Async - Coroutines/Flow
