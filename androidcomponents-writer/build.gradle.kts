@@ -44,8 +44,19 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    sourceSets {
+        getByName("main") {
+            aidl {
+                srcDirs("src\\main\\aidl", "src\\main\\aidl")
+            }
+        }
+    }
+    buildFeatures {
+        aidl = true
+    }
 }
 
 dependencies {
     implementation(projects.common)
+    implementation(libs.google.permissions)
 }

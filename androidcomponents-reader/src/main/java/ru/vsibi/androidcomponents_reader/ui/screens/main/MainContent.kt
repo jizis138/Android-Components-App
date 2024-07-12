@@ -24,6 +24,7 @@ import ru.vsibi.androidcomponents_common.util.TabNavigationItem
 import ru.vsibi.androidcomponents_reader.ui.screens.activity.ActivityTab
 import ru.vsibi.androidcomponents_reader.ui.screens.broadcast_receiver.BroadcastReceiverTab
 import ru.vsibi.androidcomponents_reader.ui.screens.content_resolver.ContentResolverTab
+import ru.vsibi.androidcomponents_reader.ui.screens.service.ServiceTab
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +43,7 @@ fun MainContent(modifier: Modifier = Modifier) {
         tabDisposable = {
             TabDisposable(
                 navigator = it,
-                tabs = listOf(ActivityTab, ContentResolverTab, BroadcastReceiverTab)
+                tabs = listOf(ActivityTab, ContentResolverTab, BroadcastReceiverTab, ServiceTab)
             )
         }
     ) { tabNavigator ->
@@ -71,6 +72,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                     TabNavigationItem(ActivityTab)
                     TabNavigationItem(ContentResolverTab)
                     TabNavigationItem(BroadcastReceiverTab)
+                    TabNavigationItem(ServiceTab)
                 }
             }
         )

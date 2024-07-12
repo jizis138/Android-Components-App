@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--    <permission android:name="ru.vsibi.androidcomponents_writer.CARS_READ" android:protectionLevel="normal"/>-->
-<!--    <permission android:name="ru.vsibi.androidcomponents_writer.CARS_WRITE" android:protectionLevel="normal"/>-->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+        android:name=".WriterApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidComponentsApp"
-        android:name=".WriterApp"
         tools:targetApi="31">
         <activity
             android:name="ru.vsibi.androidcomponents_writer.MainActivity"
@@ -32,7 +32,23 @@
             android:name=".data.content_provider.WriterContentProvider"
             android:authorities="ru.vsibi.androidcomponents_writer"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
+
+        <service
+            android:name=".ui.screens.service.foreground.ForegroundService"
+            android:foregroundServiceType="shortService" />
+
+        <service android:name=".ui.screens.service.background.BackgroundService" />
+
+        <service
+            android:name=".ui.screens.service.bound.BoundService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="writerbound.AIDL" />
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>

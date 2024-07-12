@@ -12,6 +12,8 @@ import ru.vsibi.androidcomponents_reader.domain.repository.WordsRepository
 import ru.vsibi.androidcomponents_reader.domain.usecases.WordsUseCase
 import ru.vsibi.androidcomponents_reader.ui.screens.broadcast_receiver.BroadcastReceiverViewModel
 import ru.vsibi.androidcomponents_reader.ui.screens.content_resolver.ContentResolverViewModel
+import ru.vsibi.androidcomponents_reader.ui.screens.service.ServiceReader
+import ru.vsibi.androidcomponents_reader.ui.screens.service.ServiceViewModel
 
 object CommonModule {
 
@@ -23,6 +25,10 @@ object CommonModule {
         viewModelOf(::ContentResolverViewModel)
 
         viewModelOf(::BroadcastReceiverViewModel)
+
+        viewModelOf(::ServiceViewModel)
+
+        singleOf(::ServiceReader)
 
         singleOf(::WordsRepositoryImpl) bind WordsRepository::class
 

@@ -16,6 +16,7 @@ material = "1.12.0"
 runtimeAndroid = "1.6.8"
 foundationLayoutAndroid = "1.6.8"
 lifecycleRuntimeComposeAndroid = "2.8.3"
+permissions = "0.35.1-alpha"
 
 [libraries]
     accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
@@ -50,6 +51,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
 androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
 androidx-lifecycle-runtime-compose-android = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose-android", version.ref = "lifecycleRuntimeComposeAndroid" }
+google-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "permissions" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
