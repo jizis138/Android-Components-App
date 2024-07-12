@@ -21,7 +21,7 @@ fun BroadcastReceiverContent(modifier : Modifier = Modifier){
 
     val viewState = vm.viewState.collectAsState()
 
-    LifecycleEventEffect(Lifecycle.Event.ON_CREATE) {
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         vm.subscribeWords()
     }
 

@@ -25,4 +25,9 @@ class BroadcastReceiverViewModel(private val wordsObserver: WordsObserver) : Bas
             }
         }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        wordsObserver.unsubscribe()
+    }
 }
