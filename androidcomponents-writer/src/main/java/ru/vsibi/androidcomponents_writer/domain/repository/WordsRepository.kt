@@ -11,4 +11,6 @@ interface WordsRepository {
 
     suspend fun addWord(word : String) : CallResult<Unit>
 
+    suspend fun sendWord(word : String) : CallResult<Unit>
+
 }

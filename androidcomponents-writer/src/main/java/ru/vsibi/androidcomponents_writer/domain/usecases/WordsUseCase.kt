@@ -9,6 +9,9 @@ class WordsUseCase(private val wordsRepository: WordsRepository){
 
     suspend fun addWord(word : String) = wordsRepository.addWord(word)
 
+    suspend fun sendWord(word : String) = wordsRepository.sendWord(word)
+
     suspend fun getWords() = wordsRepository.getWords()
+
 
 }

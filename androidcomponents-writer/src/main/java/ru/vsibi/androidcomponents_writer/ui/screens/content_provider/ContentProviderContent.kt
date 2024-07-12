@@ -6,7 +6,6 @@ package ru.vsibi.androidcomponents_writer.ui.screens.content_provider
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -44,7 +43,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import org.koin.compose.koinInject
 import ru.vsibi.androidcomponents_common.util.dataOrNull
 
@@ -120,7 +118,7 @@ fun WordDialog(onAcceptWord: (word: String) -> Unit, onDismissRequest: () -> Uni
                     value = textState,
                     textStyle = TextStyle(
                         fontSize = 16.sp,
-                        color = Color.Black,
+                        color = Color.White,
                         textAlign = TextAlign.Start,
                     ),
                     onValueChange = {

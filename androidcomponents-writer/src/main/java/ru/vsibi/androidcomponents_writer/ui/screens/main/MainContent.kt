@@ -22,7 +22,9 @@ import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ru.vsibi.androidcomponents_common.util.TabNavigationItem
 import ru.vsibi.androidcomponents_writer.ui.screens.activity.ActivityTab
+import ru.vsibi.androidcomponents_writer.ui.screens.broadcast_sender.BroadcastSenderTab
 import ru.vsibi.androidcomponents_writer.ui.screens.content_provider.ContentProviderTab
+import ru.vsibi.androidcomponents_writer.ui.screens.service.ServiceTab
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,7 +43,7 @@ fun MainContent(modifier: Modifier = Modifier) {
         tabDisposable = {
             TabDisposable(
                 navigator = it,
-                tabs = listOf(ActivityTab, ContentProviderTab)
+                tabs = listOf(ActivityTab, ContentProviderTab, BroadcastSenderTab, ServiceTab)
             )
         }
     ) { tabNavigator ->
@@ -69,6 +71,8 @@ fun MainContent(modifier: Modifier = Modifier) {
                 ) {
                     TabNavigationItem(ActivityTab)
                     TabNavigationItem(ContentProviderTab)
+                    TabNavigationItem(BroadcastSenderTab)
+                    TabNavigationItem(ServiceTab)
                 }
             }
         )

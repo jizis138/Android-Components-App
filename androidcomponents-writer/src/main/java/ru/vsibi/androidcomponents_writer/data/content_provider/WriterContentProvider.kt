@@ -11,13 +11,13 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteQueryBuilder
 import android.net.Uri
+import ru.vsibi.androidcomponents_common.content_provider.ContentProviderConst.AUTHORITY
+import ru.vsibi.androidcomponents_common.content_provider.ContentProviderConst.BASE_PATH
+import ru.vsibi.androidcomponents_common.content_provider.ContentProviderConst.CONTENT_URI
 
 class WriterContentProvider : ContentProvider() {
 
     companion object {
-        private const val AUTHORITY = "ru.vsibi.androidcomponents_writer"
-        private const val BASE_PATH = "data"
-        val CONTENT_URI: Uri = Uri.parse("content://$AUTHORITY/$BASE_PATH")
 
         private const val DATA = 1
         private const val DATA_ID = 2
