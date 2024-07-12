@@ -6,7 +6,7 @@
 
 -Content Provider (готово)
 
--Broadcast Receiver (в разработке)
+-Broadcast Receiver (готово)
 
 -Service (в разработке)
 
