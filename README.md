@@ -4,11 +4,11 @@
 
 -Activity (в разработке)
 
--Content Provider (готово)
+-Content Provider
 
--Broadcast Receiver (готово)
+-Broadcast Receiver
 
--Service (в разработке)
+-Service
 
 Приложение имеет два клиента, один из них отправляет события (androidcomponents-writer), другой их обрабатывает (androidcomponents-reader)
 
