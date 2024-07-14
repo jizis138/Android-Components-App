@@ -5,6 +5,7 @@ package ru.vsibi.androidcomponents_reader.data.broadcast_receiver
 
 import android.content.Context
 import android.content.IntentFilter
+import android.os.Build
 import kotlinx.coroutines.flow.Flow
 import ru.vsibi.androidcomponents_common.broadcast_receiver.BroadcastConst
 
@@ -15,7 +16,11 @@ class WordsObserver (private val context : Context) {
     fun subscribe() : Flow<String> {
         val intentFilter = IntentFilter(BroadcastConst.WORD_BROADCAST)
 
-        context.registerReceiver(receiver, intentFilter)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            context.registerReceiver(receiver, intentFilter, Context.RECEIVER_EXPORTED)
+        } else{
+            context.registerReceiver(receiver, intentFilter)
+        }
 
         return receiver.flow
     }
