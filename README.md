@@ -2,7 +2,7 @@
 
 Приложение демонстрирует работу с основными компонентами Android
 
--Activity (в разработке)
+-Activity
 
 -Content Provider
 
