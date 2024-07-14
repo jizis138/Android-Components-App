@@ -20,6 +20,7 @@
             android:name="ru.vsibi.androidcomponents_writer.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.AndroidComponentsApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +28,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.screens.activity.words_task.Word1Activity"
+            android:exported="true"
+            android:taskAffinity=".ui.screens.activity.words_task"
+            android:theme="@style/Theme.TasksTheme" >
+            <intent-filter>
+                <action android:name="writers_activities"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.screens.activity.words_task.Word2Activity"
+            android:taskAffinity=".ui.screens.activity.words_task"
+            android:theme="@style/Theme.TasksTheme" />
+        <activity
+            android:name=".ui.screens.activity.words_task.Word3Activity"
+            android:taskAffinity=".ui.screens.activity.words_task"
+            android:theme="@style/Theme.TasksTheme" />
+
+        <activity
+            android:name=".ui.screens.activity.numbers_task.Number1Activity"
+            android:taskAffinity=".ui.screens.activity.numbers_task"
+            android:theme="@style/Theme.TasksTheme" />
+        <activity
+            android:name=".ui.screens.activity.numbers_task.Number2Activity"
+            android:taskAffinity=".ui.screens.activity.numbers_task"
+            android:theme="@style/Theme.TasksTheme" />
+        <activity
+            android:name=".ui.screens.activity.numbers_task.Number3Activity"
+            android:taskAffinity=".ui.screens.activity.numbers_task"
+            android:theme="@style/Theme.TasksTheme" />
 
         <provider
             android:name=".data.content_provider.WriterContentProvider"

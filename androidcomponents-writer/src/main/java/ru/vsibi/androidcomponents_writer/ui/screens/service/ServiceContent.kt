@@ -7,6 +7,7 @@ import android.Manifest
 import android.content.Intent
 import android.os.Build
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -76,41 +77,46 @@ fun ServiceContent(modifier: Modifier = Modifier) {
         }
     }
 
-    Column(
+    Box(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        contentAlignment = Alignment.Center
     ) {
 
-        Text(text = "Foreground Service")
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
 
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            Text(text = "Foreground Service")
 
-            Text(text = "Стоп")
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
 
-            Switch(checked = foregroundChecked, onCheckedChange = { foregroundChecked = !foregroundChecked })
+                Text(text = "Стоп")
 
-            Text(text = "Пуск")
+                Switch(checked = foregroundChecked, onCheckedChange = { foregroundChecked = !foregroundChecked })
+
+                Text(text = "Пуск")
+
+            }
+
+            Text(text = "Background Service")
+
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+
+                Text(text = "Стоп")
+
+                Switch(checked = backgroundChecked, onCheckedChange = { backgroundChecked = !backgroundChecked })
+
+                Text(text = "Пуск")
+
+            }
+
+            Text(text = "Bound Service $serviceRunning")
+
+
+            Text(text = "Кнопка запуска в Reader-клиенте")
 
         }
-
-        Text(text = "Background Service")
-
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-
-            Text(text = "Стоп")
-
-            Switch(checked = backgroundChecked, onCheckedChange = { backgroundChecked = !backgroundChecked })
-
-            Text(text = "Пуск")
-
-        }
-
-        Text(text = "Bound Service $serviceRunning")
-
-
-        Text(text = "Кнопка запуска в Reader-клиенте")
-
     }
 
 }

@@ -43,8 +43,8 @@ class ServiceReader(private val context : Context) {
         context.unbindService(serviceConnection)
     }
 
-    private fun convertImplicitIntentToExplicitIntent(ct: Context, implicitIntent: Intent): Intent? {
-        val pm = ct.packageManager
+    private fun convertImplicitIntentToExplicitIntent(context: Context, implicitIntent: Intent): Intent? {
+        val pm = context.packageManager
         val resolveInfoList = pm.queryIntentServices(implicitIntent, 0)
         if (resolveInfoList.size != 1) {
             return null

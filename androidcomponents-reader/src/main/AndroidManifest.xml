@@ -3,12 +3,12 @@
 
     <queries>
         <provider android:authorities="ru.vsibi.androidcomponents_writer" />
-    </queries>
-
-    <queries>
-       <intent>
-           <action android:name="writerbound.AIDL"/>
-       </intent>
+        <intent>
+            <action android:name="writerbound.AIDL"/>
+        </intent>
+        <intent>
+            <action android:name="writers_activities"/>
+        </intent>
     </queries>
 
     <application
