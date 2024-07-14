@@ -5,6 +5,7 @@ package ru.vsibi.androidcomponents_writer.ui.screens.service.foreground
 
 import android.app.Service
 import android.content.Intent
+import android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE
 import android.os.Build
 import android.os.IBinder
 
@@ -24,7 +25,11 @@ class ForegroundService : Service() {
             text = "Foreground Service Запущен"
         )
 
-        startForeground(1, notification)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(1, notification, FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
+        } else {
+            startForeground(1, notification)
+        }
 
         return START_STICKY
     }

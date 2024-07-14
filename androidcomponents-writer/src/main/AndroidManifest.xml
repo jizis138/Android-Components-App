@@ -75,7 +75,9 @@
 
         <service
             android:name=".ui.screens.service.bound.BoundService"
-            android:exported="true">
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="shortService">
             <intent-filter>
                 <action android:name="writerbound.AIDL" />
             </intent-filter>

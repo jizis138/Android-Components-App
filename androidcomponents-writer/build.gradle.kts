@@ -59,4 +59,5 @@ android {
 dependencies {
     implementation(projects.common)
     implementation(libs.google.permissions)
+    implementation(libs.androidx.lifecycle.runtime.compose.android)
 }

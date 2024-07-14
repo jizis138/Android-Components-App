@@ -23,6 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
@@ -42,8 +44,8 @@ fun ServiceContent(modifier: Modifier = Modifier) {
         mutableStateOf(false)
     }
 
-    val serviceRunning by remember {
-        mutableStateOf(if (BoundService.serviceRunning) "запущен" else "не запущен")
+    var serviceRunning by remember {
+        mutableStateOf(getServiceState())
     }
 
     val context = LocalContext.current
@@ -55,6 +57,10 @@ fun ServiceContent(modifier: Modifier = Modifier) {
         if (!notificationPermissionState.status.isGranted) {
             notificationPermissionState.launchPermissionRequest()
         }
+    }
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        serviceRunning = getServiceState()
     }
     LaunchedEffect(key1 = foregroundChecked) {
         val intent = Intent(context, ForegroundService::class.java)
@@ -120,3 +126,6 @@ fun ServiceContent(modifier: Modifier = Modifier) {
     }
 
 }
+
+fun getServiceState() =
+    if (BoundService.serviceRunning) "запущен" else "не запущен"

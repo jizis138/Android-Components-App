@@ -5,6 +5,7 @@ package ru.vsibi.androidcomponents_writer.ui.screens.service.bound
 
 import android.app.Service
 import android.content.Intent
+import android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE
 import android.os.Build
 import android.os.IBinder
 import kotlinx.coroutines.CoroutineScope
@@ -18,7 +19,7 @@ import ru.vsibi.androidcomponents_writer.ui.screens.service.foreground.Notificat
 
 class BoundService : Service() {
 
-    companion object{
+    companion object {
         var serviceRunning = false
     }
 
@@ -49,13 +50,6 @@ class BoundService : Service() {
             NotificationUtil.createNotificationChannel(applicationContext)
         }
 
-        val notification = NotificationUtil.buildNotification(
-            context = applicationContext,
-            text = "Bound Service Запущен"
-        )
-
-        startForeground(2, notification)
-
         scope.launch {
             repeat(1000) {
 
@@ -74,6 +68,16 @@ class BoundService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val notification = NotificationUtil.buildNotification(
+            context = applicationContext,
+            text = "Bound Service Запущен"
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(2, notification, FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
+        } else {
+            startForeground(2, notification)
+        }
         return START_STICKY
     }
 
